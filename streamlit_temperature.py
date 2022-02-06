@@ -8,8 +8,8 @@ pio.renderers.default = "notebook"
 
 key_path = './loppi-engineering-1be70e65caa0.json'
 
-credentials = service_account.Credentials.from_service_account_file(
-    key_path, scopes=["https://www.googleapis.com/auth/cloud-platform"],
+credentials = service_account.Credentials.from_service_account_info(
+    st.secrets["gcp_service_account"]
 )
 
 client = bigquery.Client(credentials=credentials, project=credentials.project_id,)
