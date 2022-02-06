@@ -1,2 +1,3 @@
-# doce_paladar_streamlit
-Repositório para Monitoramento de Temperatura Doce Paladar
+# Doce Paladar - Monitoramento
+
+Repositório para Monitoramento de Temperatura das camaras frias da Doce Paladar
