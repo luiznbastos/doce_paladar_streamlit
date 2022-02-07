@@ -28,14 +28,14 @@ monitor = pd.DataFrame([{
     'cliente':row[1].client,
     'timestamp':row[1].timestamp,
     'cold_chamber_name':row[1].cold_chamber_name,
-    't_valve': row[1].temperature[0],
-    't_evap':row[1].temperature[1],
-    't_amb':row[1].temperature[2] if len(row[1].temperature)>2 else None,
-    't_comp':row[1].temperature[3] if len(row[1].temperature)>2 else None,
+#     't_valve': row[1].temperature[0],
+#     't_evap':row[1].temperature[1],
+    'T_entrada_evaporador':row[1].temperature[2] if len(row[1].temperature)>2 else None,
+    'T_ambiente':row[1].temperature[3] if len(row[1].temperature)>2 else None,
 } for row in results.iterrows()]).sort_values('timestamp', ascending=False)
 
 
-monitor_melted = pd.melt(monitor, id_vars = ['cliente', 'timestamp', 'cold_chamber_name'])
+monitor_melted = pd.melt(monitor[monitor.timestamp > '2022-02-06', id_vars = ['cliente', 'timestamp', 'cold_chamber_name'])
 
 fig = px.line(monitor_melted, x='timestamp', y='value', color='variable')
 fig.update_xaxes(rangeslider_visible=True)
