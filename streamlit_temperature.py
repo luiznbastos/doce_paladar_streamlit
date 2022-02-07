@@ -31,7 +31,7 @@ monitor = pd.DataFrame([{
 #     't_valve': row[1].temperature[0],
 #     't_evap':row[1].temperature[1],
     'T_entrada_evaporador':row[1].temperature[2] if len(row[1].temperature)>2 else None,
-    'T_ambiente':row[1].temperature[3] if len(row[1].temperature)>2 else None,
+    'T_interior_da_camara':row[1].temperature[3] if len(row[1].temperature)>2 else None,
 } for row in results.iterrows()]).sort_values('timestamp', ascending=False)
 
 
