@@ -35,7 +35,7 @@ monitor = pd.DataFrame([{
 } for row in results.iterrows()]).sort_values('timestamp', ascending=False)
 
 
-monitor_melted = pd.melt(monitor[monitor.timestamp > '2022-02-06', id_vars = ['cliente', 'timestamp', 'cold_chamber_name'])
+monitor_melted = pd.melt(monitor[monitor.timestamp > '2022-02-06'], id_vars = ['cliente', 'timestamp', 'cold_chamber_name'])
 
 fig = px.line(monitor_melted, x='timestamp', y='value', color='variable')
 fig.update_xaxes(rangeslider_visible=True)
